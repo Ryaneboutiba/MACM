@@ -69,6 +69,21 @@ entity etageDE is
 end entity;
 
 
+architecture behaviour of etageDE is
+  signal sigOP1,sigOP2 : std_logic_vector(3 downto 0);
+  begin
+  sigOP1<= i_DE(19 downto 16) when RegSrc(0)='0' else
+           conv_std_logic_vector(15,sigOp1'length);
+
+  sigOP2<= i_DE(3 downto 0) when RegSrc(0)='0' else
+           i_DE(15 downto 0);
+
+  Op3_DE<=i_DE(15 downto 0);
+  
+
+
+  end architecture;
+
 -- -------------------------------------------------
 
 -- -- Etage EX
