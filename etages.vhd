@@ -113,12 +113,53 @@ architecture behaviour of etageDE is
 
 -- -- Etage EX
 
--- LIBRARY IEEE;
--- USE IEEE.STD_LOGIC_1164.ALL;
--- USE IEEE.NUMERIC_STD.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
--- entity etageEX is
--- end entity
+entity etageEX is
+  port(
+    Op1_EX,Op2_EX,Extlmm_EX,Res_fwd_ME,Res_fwd_ER : in std_logic_vector(31 downto 0);
+    Op3_EX: std_logic_vector(3 downto 0);
+    EA_EX,EB_EX,ALU_Ctrl_EX: in std_logic_vector(1 downto 0);
+    ALU_Src_EX : in std_logic;
+    CC: out std_logic_vector(3 downto 0);
+    Res_EX,WD_EX,npc_fw_br : out std_logic_vector(31 downto 0);
+    OP3_EX_out : out std_logic_vector(3 downto 0)
+  );
+end entity;
+
+
+architecture behaviour of etageEx is
+  signal ALUOp1,Oper2,ALUOp2,Res : std_logic_vector(31 downto 0);
+begin
+  OP3_EX_out<=Op3_EX;
+
+  WD_EX<=Op2_EX;
+
+  ALUOp1<=Op1_EX when EA_EX(1)='0' and EA_EX(0)='0' else
+          Res_fwd_ER when EA_EX(1)='0' and EA_EX(0)='1' else
+          Res_fwd_ME;
+
+  Oper2<=Op2_EX when EB_EX(1)='0' and EB_EX(0)='0' else
+         Res_fwd_ER when EB_EX(1)='0' and EB_EX(0)='1' else
+         Res_fwd_ME;
+
+  ALUOp2<=Oper2 when ALU_Src_EX='0' else
+          Extlmm_EX;
+
+  inst_alu : entity work.ALU  port map(
+    A=>ALUOp1,
+    B=>ALUOp2,
+    sel=>ALU_Ctrl_EX,
+    Res=>Res
+  );
+
+  Res_EX<= Res;
+  npc_fw_br<=Res;
+
+  end architecture;
+
 -- -------------------------------------------------
 
 -- -- Etage ME
