@@ -1,4 +1,37 @@
 v 4
+file . "test_bench_DE.vhd" "8a9d5eea5764c05991404d7ca9168024726aa2c3" "20260326140757.586":
+  entity tb_etagede at 1( 0) + 0 on 378;
+  architecture test of tb_etagede at 8( 104) + 0 on 379;
+file . "test_bench_fetch.vhd" "6867dc7aabe99d93f0a372bd06ba1b2e96a76b59" "20260321113647.803":
+  entity tb_etagefe at 1( 0) + 0 on 339;
+  architecture test of tb_etagefe at 8( 104) + 0 on 340;
+file . "etages.vhd" "2b6b4c40d17662d2fa5f169dae0f146df0320ed2" "20260326154322.054":
+  entity etagefe at 5( 64) + 0 on 386;
+  architecture etagefe_arch of etagefe at 18( 340) + 0 on 387;
+  entity etagede at 56( 1141) + 0 on 388;
+  architecture behaviour of etagede at 72( 1564) + 0 on 389;
+  entity etageex at 116( 2517) + 0 on 390;
+  architecture behaviour of etageex at 133( 3009) + 0 on 391;
+  entity etageme at 167( 3738) + 0 on 392;
+  architecture behaviour of etageme at 182( 4110) + 0 on 393;
+file . "combi.vhd" "e625e5375f12fdffa57c9ea826769b457ca68d3f" "20260326140637.143":
+  entity fulladd1b at 6( 100) + 0 on 358;
+  architecture arche_full_add of fulladd1b at 17( 276) + 0 on 359;
+  entity addcomplex at 24( 427) + 0 on 360;
+  architecture arch_add_complex of addcomplex at 36( 679) + 0 on 361;
+  entity alu at 54( 1054) + 0 on 362;
+  architecture arch_alu of alu at 70( 1389) + 0 on 363;
+  entity extension at 108( 2320) + 0 on 364;
+  architecture arch_ext of extension at 120( 2577) + 0 on 365;
+file . "mem.vhd" "aaf2837cfc31ea820fbf0b89533c1ad5f062f5b0" "20260326140644.183":
+  entity imem at 5( 86) + 0 on 366;
+  architecture behave of imem at 12( 313) + 0 on 367;
+  entity inst_mem at 64( 1873) + 0 on 368;
+  architecture arch_inst_mem of inst_mem at 76( 2083) + 0 on 369;
+  entity dmem at 87( 2296) + 0 on 370;
+  architecture behave of dmem at 96( 2558) + 0 on 371;
+  entity data_mem at 119( 3137) + 0 on 372;
+  architecture arch_data_mem of data_mem at 133( 3379) + 0 on 373;
 file . "reg_bank.vhd" "6ba0f93b170cd55fc76bd67eacafc721bd0d420d" "20260326140628.014":
   package bus_mux_pkg at 1( 0) + 0 on 345;
   entity reg32 at 13( 289) + 0 on 346;
@@ -13,34 +46,3 @@ file . "reg_bank.vhd" "6ba0f93b170cd55fc76bd67eacafc721bd0d420d" "20260326140628
   architecture arch_reg of reg1 at 162( 3326) + 0 on 355;
   entity registerbank at 185( 3722) + 0 on 356;
   architecture arch_reg_bank of registerbank at 207( 4300) + 0 on 357;
-file . "mem.vhd" "aaf2837cfc31ea820fbf0b89533c1ad5f062f5b0" "20260326140644.183":
-  entity imem at 5( 86) + 0 on 366;
-  architecture behave of imem at 12( 313) + 0 on 367;
-  entity inst_mem at 64( 1873) + 0 on 368;
-  architecture arch_inst_mem of inst_mem at 76( 2083) + 0 on 369;
-  entity dmem at 87( 2296) + 0 on 370;
-  architecture behave of dmem at 96( 2558) + 0 on 371;
-  entity data_mem at 119( 3137) + 0 on 372;
-  architecture arch_data_mem of data_mem at 133( 3379) + 0 on 373;
-file . "combi.vhd" "e625e5375f12fdffa57c9ea826769b457ca68d3f" "20260326140637.143":
-  entity fulladd1b at 6( 100) + 0 on 358;
-  architecture arche_full_add of fulladd1b at 17( 276) + 0 on 359;
-  entity addcomplex at 24( 427) + 0 on 360;
-  architecture arch_add_complex of addcomplex at 36( 679) + 0 on 361;
-  entity alu at 54( 1054) + 0 on 362;
-  architecture arch_alu of alu at 70( 1389) + 0 on 363;
-  entity extension at 108( 2320) + 0 on 364;
-  architecture arch_ext of extension at 120( 2577) + 0 on 365;
-file . "etages.vhd" "f50c2685f551a84bb70ff6a0054a0da883d0c37e" "20260326152711.078":
-  entity etagefe at 5( 64) + 0 on 380;
-  architecture etagefe_arch of etagefe at 18( 340) + 0 on 381;
-  entity etagede at 56( 1141) + 0 on 382;
-  architecture behaviour of etagede at 72( 1564) + 0 on 383;
-  entity etageex at 116( 2517) + 0 on 384;
-  architecture behaviour of etageex at 133( 3009) + 0 on 385;
-file . "test_bench_fetch.vhd" "6867dc7aabe99d93f0a372bd06ba1b2e96a76b59" "20260321113647.803":
-  entity tb_etagefe at 1( 0) + 0 on 339;
-  architecture test of tb_etagefe at 8( 104) + 0 on 340;
-file . "test_bench_DE.vhd" "8a9d5eea5764c05991404d7ca9168024726aa2c3" "20260326140757.586":
-  entity tb_etagede at 1( 0) + 0 on 378;
-  architecture test of tb_etagede at 8( 104) + 0 on 379;

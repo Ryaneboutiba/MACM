@@ -164,20 +164,61 @@ begin
 
 -- -- Etage ME
 
--- LIBRARY IEEE;
--- USE IEEE.STD_LOGIC_1164.ALL;
--- USE IEEE.NUMERIC_STD.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
--- entity etageME is
--- end entity;
+entity etageME is
+  port(
+    Res_ME,WD_ME : in std_logic_vector(31 downto 0);
+    OP3_ME : in std_logic_vector(3 downto 0);
+    clk,MemWR_Mem : in std_logic;
+    Res_Mem_ME,Res_ALU_ME,Res_fwd_ME : out std_logic_vector(31 downto 0);
+    Op3_ME_out : out std_logic_vector(3 downto 0)
+  );
+end entity;
+
+
+architecture behaviour of etageME is 
+begin
+  Op3_ME_out<=OP3_ME;
+  Res_ALU_ME<=Res_ME;
+  Res_fwd_ME<=Res_ME;
+
+  inst_memD : entity work.data_mem port map(
+    addr=>Res_ME,
+    WD=>WD_ME,
+    WR=>MemWR_Mem,
+    clk=>clk,
+    data =>Res_Mem_ME
+  );
+
+end architecture;
+
 -- -------------------------------------------------
 
 -- -- Etage ER
 
--- LIBRARY IEEE;
--- USE IEEE.STD_LOGIC_1164.ALL;
--- USE IEEE.NUMERIC_STD.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
--- entity etageER is
--- end entity;
+entity etageER is
+  port(
+    Res_Mem_RE,Res_ALU_ME : in  std_logic_vector(31 downto 0);
+    OP3_RE : in std_logic_vector( 3 downto 0);
+    MemToReg_RE: in std_logic;
+    Res_RE : out std_logic_vector(31 downto 0);
+    OP3_RE_out : out std_logic_vector(3 downto 0)
+  );
+end entity;
+
+
+architecture behaviour of etageER is 
+begin
+  OP3_RE_out<=OP3_RE;
+  Res_RE<= Res_Mem_RE when MemToReg_RE='1' else
+           Res_ALU_ME;
+
+  end architecture;
 
