@@ -1,41 +1,44 @@
 v 4
+file . "test_bench_DE.vhd" "8a9d5eea5764c05991404d7ca9168024726aa2c3" "20260326140757.586":
+  entity tb_etagede at 1( 0) + 0 on 378;
+  architecture test of tb_etagede at 8( 104) + 0 on 379;
 file . "test_bench_fetch.vhd" "6867dc7aabe99d93f0a372bd06ba1b2e96a76b59" "20260321113647.803":
   entity tb_etagefe at 1( 0) + 0 on 339;
   architecture test of tb_etagefe at 8( 104) + 0 on 340;
-file . "etages.vhd" "2cb280110389282c010eb169ac891bbbe54a0582" "20260321111228.303":
-  entity etagefe at 5( 64) + 0 on 331;
-  architecture etagefe_arch of etagefe at 18( 340) + 0 on 332;
-  entity etagede at 56( 1173) + 0 on 333;
-  architecture behaviour of etagede at 72( 1593) + 0 on 334;
-file . "combi.vhd" "e625e5375f12fdffa57c9ea826769b457ca68d3f" "20260321111130.593":
-  entity fulladd1b at 6( 100) + 0 on 310;
-  architecture arche_full_add of fulladd1b at 17( 276) + 0 on 311;
-  entity addcomplex at 24( 427) + 0 on 312;
-  architecture arch_add_complex of addcomplex at 36( 679) + 0 on 313;
-  entity alu at 54( 1054) + 0 on 314;
-  architecture arch_alu of alu at 70( 1389) + 0 on 315;
-  entity extension at 108( 2320) + 0 on 316;
-  architecture arch_ext of extension at 120( 2577) + 0 on 317;
-file . "mem.vhd" "aaf2837cfc31ea820fbf0b89533c1ad5f062f5b0" "20260321111128.112":
-  entity imem at 5( 86) + 0 on 302;
-  architecture behave of imem at 12( 313) + 0 on 303;
-  entity inst_mem at 64( 1873) + 0 on 304;
-  architecture arch_inst_mem of inst_mem at 76( 2083) + 0 on 305;
-  entity dmem at 87( 2296) + 0 on 306;
-  architecture behave of dmem at 96( 2558) + 0 on 307;
-  entity data_mem at 119( 3137) + 0 on 308;
-  architecture arch_data_mem of data_mem at 133( 3379) + 0 on 309;
-file . "reg_bank.vhd" "6ba0f93b170cd55fc76bd67eacafc721bd0d420d" "20260321111133.126":
-  package bus_mux_pkg at 1( 0) + 0 on 318;
-  entity reg32 at 13( 289) + 0 on 319;
-  architecture arch_reg of reg32 at 25( 529) + 0 on 320;
-  entity reg32sync at 47( 1000) + 0 on 321;
-  architecture arch_reg_sync of reg32sync at 59( 1244) + 0 on 322;
-  entity reg4 at 82( 1722) + 0 on 323;
-  architecture arch_reg of reg4 at 94( 1959) + 0 on 324;
-  entity reg2 at 116( 2425) + 0 on 325;
-  architecture arch_reg of reg2 at 128( 2662) + 0 on 326;
-  entity reg1 at 150( 3127) + 0 on 327;
-  architecture arch_reg of reg1 at 162( 3326) + 0 on 328;
-  entity registerbank at 185( 3722) + 0 on 329;
-  architecture arch_reg_bank of registerbank at 207( 4300) + 0 on 330;
+file . "etages.vhd" "02abf6814f035c20337a2db02f02176ad1a5d88b" "20260326140742.372":
+  entity etagefe at 5( 64) + 0 on 374;
+  architecture etagefe_arch of etagefe at 18( 340) + 0 on 375;
+  entity etagede at 56( 1141) + 0 on 376;
+  architecture behaviour of etagede at 72( 1564) + 0 on 377;
+file . "combi.vhd" "e625e5375f12fdffa57c9ea826769b457ca68d3f" "20260326140637.143":
+  entity fulladd1b at 6( 100) + 0 on 358;
+  architecture arche_full_add of fulladd1b at 17( 276) + 0 on 359;
+  entity addcomplex at 24( 427) + 0 on 360;
+  architecture arch_add_complex of addcomplex at 36( 679) + 0 on 361;
+  entity alu at 54( 1054) + 0 on 362;
+  architecture arch_alu of alu at 70( 1389) + 0 on 363;
+  entity extension at 108( 2320) + 0 on 364;
+  architecture arch_ext of extension at 120( 2577) + 0 on 365;
+file . "mem.vhd" "aaf2837cfc31ea820fbf0b89533c1ad5f062f5b0" "20260326140644.183":
+  entity imem at 5( 86) + 0 on 366;
+  architecture behave of imem at 12( 313) + 0 on 367;
+  entity inst_mem at 64( 1873) + 0 on 368;
+  architecture arch_inst_mem of inst_mem at 76( 2083) + 0 on 369;
+  entity dmem at 87( 2296) + 0 on 370;
+  architecture behave of dmem at 96( 2558) + 0 on 371;
+  entity data_mem at 119( 3137) + 0 on 372;
+  architecture arch_data_mem of data_mem at 133( 3379) + 0 on 373;
+file . "reg_bank.vhd" "6ba0f93b170cd55fc76bd67eacafc721bd0d420d" "20260326140628.014":
+  package bus_mux_pkg at 1( 0) + 0 on 345;
+  entity reg32 at 13( 289) + 0 on 346;
+  architecture arch_reg of reg32 at 25( 529) + 0 on 347;
+  entity reg32sync at 47( 1000) + 0 on 348;
+  architecture arch_reg_sync of reg32sync at 59( 1244) + 0 on 349;
+  entity reg4 at 82( 1722) + 0 on 350;
+  architecture arch_reg of reg4 at 94( 1959) + 0 on 351;
+  entity reg2 at 116( 2425) + 0 on 352;
+  architecture arch_reg of reg2 at 128( 2662) + 0 on 353;
+  entity reg1 at 150( 3127) + 0 on 354;
+  architecture arch_reg of reg1 at 162( 3326) + 0 on 355;
+  entity registerbank at 185( 3722) + 0 on 356;
+  architecture arch_reg_bank of registerbank at 207( 4300) + 0 on 357;

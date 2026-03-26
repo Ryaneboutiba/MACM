@@ -21,7 +21,7 @@ begin
 
   sig_4 <= (2=>'1', others => '0');
   
-  -- Architecture Ã  complÃ©ter
+  
   
   pc_inter<=npc when PCSrc_ER='1'else
             sig_pc_plus_4;
@@ -59,7 +59,7 @@ USE IEEE.NUMERIC_STD.ALL;
 
 entity etageDE is
   port(
-    i_DE,WD_ER,pc_plus_4 : std_logic_vector(31 downto 0);
+    i_DE,WD_ER,pc_plus_4 : in std_logic_vector(31 downto 0);
     Op3_ER : in std_logic_vector(3 downto 0);
     RegSrc, immSrc : in std_logic_vector(1 downto 0);
     RegWr, clk,Init: in std_logic;
@@ -71,15 +71,40 @@ end entity;
 
 architecture behaviour of etageDE is
   signal sigOP1,sigOP2 : std_logic_vector(3 downto 0);
+  signal immIn_sig : std_logic_vector(23 downto 0);
   begin
-  --sigOP1<= i_DE(19 downto 16) when RegSrc(0)='0' else
-  --         conv_std_logic_vector(15,sigOp1'length);
+  sigOP1<= i_DE(19 downto 16) when RegSrc(0)='0' else
+    std_logic_vector(to_unsigned(15, 4));
 
-  --sigOP2<= i_DE(3 downto 0) when RegSrc(0)='0' else
-  --         i_DE(15 downto 0);
+  sigOP2<= i_DE(3 downto 0) when RegSrc(1)='0' else
+           i_DE(15 downto 12);
 
-  --Op3_DE<=i_DE(15 downto 0);
+  Op3_DE<=i_DE(15 downto 12);
+
+  inst_reg_bank : entity work.RegisterBank port map (
+    s_reg_0=>sigOp1,
+    data_o_0=>Op1,
+    s_reg_1=>sigOP2,
+    data_o_1=>Op2,
+    data_i=>WD_ER,
+    wr_reg=>RegWr,
+    pc_in=>pc_plus_4,
+    dest_reg=>Op3_ER,
+    clk=> clk,
+    init=>Init
+  );
   
+  Reg1<=sigOp1;
+  Reg2<=sigOP2;
+
+  immIn_sig <= i_DE(23 downto 0);
+
+  -- Extension de l'immédiat via le composant dédié
+  inst_ext : entity work.extension port map (
+    immIn  => immIn_sig,
+    immSrc => immSrc,
+    ExtOut => extlmm
+  );
 
 
   end architecture;
